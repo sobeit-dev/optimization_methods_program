@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script defer src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script> -->
+
+    <link rel="stylesheet" href="CSS/lib/leaflet1_7_1.css" />
+    <link rel="stylesheet" href="CSS/lib/leaflet-routing-machine.css" />
+
+    <script defer src="JavaScript/lib/leaflet1_7_1.js"></script>
+    <script defer src="JavaScript/lib/leaflet-routing-machine.js"></script>
+
+    <script defer src="JavaScript/main.js"></script>
+
+    <title>Document</title>
+
+    <style>
+        * 
+        {
+            padding: 0;
+            margin: 0;
+            outline: 0;
+        }
+        html, body 
+        {
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgb(200 200 200);
+        }
+
+        #main-render-win 
+        {
+            margin: 0;
+            padding: 0;
+            width: 80vw;
+            height: 99vh;
+            overflow: hidden;
+            background-color: rgb(219, 211, 211);
+            border: rgb(58, 58, 58) 5px solid;
+        }
+
+        #root-box
+        {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: stretch;
+        }
+
+        #main-menu
+        {
+            text-align: center;
+            padding: 20px;
+            width: 19vw;
+            border: rgb(58, 58, 58) 5px solid;
+            border-left: none;
+        }
+
+        .setting
+        {
+            font-size: 120%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .setting p
+        {
+            text-align: left;
+        }
+
+        .setting input, select
+        {
+            font-size: 95%;
+        }
+
+        .gren_button
+        {
+            width: 100%;
+            margin-top: 20px;
+            background-color: #327ede;
+            border: none;
+            color: white;
+            padding: 4px 4px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            border: 2px solid rgb(255, 255, 255);
+        }
+
+        .gren_button:hover
+        {
+            background-color: #2a6cbd;
+            color: #d2d2d2;
+        }
+
+        @media (max-width: 768px)
+        {
+            .gren_button
+            {
+                padding: 5px;
+            }
+
+            #main-render-win 
+            {
+                width: 100%;
+            }
+
+            .setting
+            {
+                font-size: 120%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px)
+        {
+            .gren_button
+            {
+                font-size: 75%;
+            }
+
+            #main-menu
+            {
+                width: 25%;
+            }
+
+            .setting
+            {
+                font-size: 75%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        #main_map_box
+        {
+            width: 100%;
+            height: 100%;
+        }
+
+        .input__wrapper 
+        {
+            border: 2px solid rgb(255, 255, 255);
+            position: relative;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .input__file 
+        {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+        }
+
+        .input__file-icon-wrapper 
+        {
+            padding: 2px 2px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .input__file-button-text 
+        {
+            line-height: 1;
+            margin-top: 1px;
+        }
+
+        .input__file-button 
+        {
+            width: 100%;
+            background: #327ede;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        #result_box
+        {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 18px;
+            word-wrap: break-word;
+        }
+    </style>
+
+</head>
+<body>
+    <div id = "root-box">
+        <div id = "main-render-win">
+            <div id="main_map_box"></div>
+        </div>
+        <div id = "main-menu">
+            <button class = "gren_button" onclick="document.location='./Pages/Distance_Matrix/Add_manual_mode.html'">Создать матрицу</button>
+            <button class = "gren_button" onclick="document.location='./Pages/Distance_Matrix/Show_data.html'">Посмотреть матрицу</button>
+
+            <div class="input__wrapper">
+                <input name="file" type="file" name="file" id="input__file" class="input input__file" multiple>
+                <label for="input__file" class="input__file-button">
+                   <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./Pages/Distance_Matrix/res/add.svg" alt="Выбрать файл" width="25"></span>
+                </label>
+             </div>
+
+            <button class = "gren_button" onclick="bCalculate();">Рассчитать</button>
+            <button class = "gren_button" onclick="bBuild();">Построить</button>
+            <div id = "result_box"></div>
+        </div>
+    </div>
+</body>
+
+</html>

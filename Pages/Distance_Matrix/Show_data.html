@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/add_matrix.css">
+    <script defer src="../../JavaScript/Distance_Matrix/show_data.js"></script>
+    <title>Просмотр данных</title>
+</head>
+<body>
+
+    <div class="input__wrapper">
+        <input name="file" type="file" name="file" id="input__file" class="input input__file" multiple>
+        <label for="input__file" class="input__file-button">
+           <span class="input__file-icon-wrapper"><img class="input__file-icon" src="./res/add.svg" alt="Выбрать файл" width="25"></span>
+           <span class="input__file-button-text">Выберите файл</span>
+        </label>
+     </div>
+
+    <form class = "m_form" onsubmit="return false" >
+        <div class="table_desc">Название города и его координаты</div>
+        <div class = "table_box">
+            <table class = "s_table" id = "coords_table"></table>
+        </div>
+        <div class="table_desc">Расстояния между городами</div>
+        <div style="margin-bottom: 50px;" class = "table_box">
+            <table class = "s_table" id = "matrix_table"></table>
+        </div>
+    </form>
+</html>

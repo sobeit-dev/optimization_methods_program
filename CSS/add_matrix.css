@@ -1,0 +1,232 @@
+html, body 
+{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(200 200 200);
+    width: 100%;
+    max-width: 100%;
+}
+
+.table_box
+{
+    margin: 0;
+    display: block;
+    max-width: 90%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.table_desc
+{
+    padding: 50px 0 0 0;
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.m_form
+{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    max-width: 100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+.s_table 
+{
+    border-radius: 5px;
+    border-spacing: 0;
+    text-align: center;
+}
+
+.s_table th 
+{
+    background: #327ede;
+    color: white;
+    text-shadow: 0 1px 1px #2D2020;
+    padding: 10px;
+    font-size: 120%;
+}
+
+.s_table th, td 
+{
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+
+.s_table th:first-child 
+{
+    border-top-left-radius: 5px;
+}
+
+.s_table th:last-child 
+{
+    border-top-right-radius: 5px;
+    border-right: none;
+}
+
+.s_table td 
+{
+    /* padding: 8px 35px; */
+    padding: 5px;
+    background: #b0ccff;
+}
+
+.s_table td input
+{
+    font-size: 110%;
+}
+
+.s_table tr:last-child td:first-child 
+{
+    border-radius: 0 0 0 5px;
+}
+
+.s_table tr:last-child td:last-child 
+{
+    border-radius: 0 0 5px 0;
+}
+
+.s_table tbody tr td:first-child
+{
+    border-width: 0px 1px 1px 1px;
+}
+
+.s_table td:hover
+{
+    background: #98b3e6 !important;
+}
+
+.green_button
+{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 4px 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.green_button:hover
+{
+    background-color: #39973c;
+    color: #d2d2d2;
+}
+
+.pop_up-blur
+{
+    position:fixed;
+    top:0%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.295);
+    z-index: 2;
+}
+
+.pop_up-msg
+{
+    padding: 20px 30px 20px 30px;
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background: #b0ccff;
+    border: 2px solid rgb(255, 255, 255);
+    font-size: 120%;
+    z-index: 3;
+    border-radius: 5px;
+    cursor: default;
+    text-align: center;
+    max-width: 35%;
+}
+
+.pop_up-close
+{
+    position: absolute;
+    top: -15px;
+    right: 0px;
+    z-index: 4;
+    font-size: 35px;
+    display: block;
+    cursor: default;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/*  */
+
+.input__wrapper {
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+    text-align: center;
+  }
+   
+  .input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+   
+  .input__file-icon-wrapper {
+    height: 60px;
+    width: 60px;
+    margin-right: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-right: 2px solid rgb(255, 255, 255);
+  }
+
+  .input__file-button-text {
+    line-height: 1;
+    margin-top: 1px;
+  }
+   
+  .input__file-button {
+    width: 100%;
+    max-width: 290px;
+    height: 60px;
+    background: #327ede;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto;
+    border: 2px solid rgb(255, 255, 255);
+  }
